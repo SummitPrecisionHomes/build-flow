@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Timeline Prediction - BuildFlow{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Timeline Prediction</h1>
+<p class="text-xl mb-4">Predicted Completion: {{ days|floatformat:1 }} days</p>
+<a href="{% url 'project_list' %}" class="text-blue-500 hover:underline">Back to Projects</a>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BuildFlow{% endblock %}</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'project_list' %}" class="text-2xl font-bold">BuildFlow</a>
+            <div>
+                {% if user.is_authenticated %}
+                    <span class="mr-4">Hello, {{ user.username }}!</span>
+                    <a href="{% url 'logout' %}" class="hover:underline">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="hover:underline">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-6 p-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
